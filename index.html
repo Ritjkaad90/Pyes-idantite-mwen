@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pyès Identité Mwen - Prototype amélioré</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #eef2f6;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1a73e8;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 4px solid #0f4eb3;
+    }
+    main {
+      padding: 20px;
+      max-width: 650px;
+      margin: auto;
+      background-color: white;
+      margin-top: 25px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 { color: #1a73e8; border-bottom: 2px solid #e0e0e0; padding-bottom: 5px; }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 15px;
+    }
+    textarea { resize: vertical; }
+    button {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover { background-color: #155cb0; }
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #e8f0fe;
+      border-radius: 5px;
+      display: none;
+    }
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      color: #555;
+      font-size: 14px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Pyès Identité Mwen</h1>
+  <p>Retrouver, enregistrer et sécuriser vos documents perdus</p>
+</header>
+
+<main>
+  <h2>Enregistrer une pièce retrouvée</h2>
+  <input type="text" id="name" placeholder="Nom complet sur la pièce">
+  <input type="text" id="document" placeholder="Type de pièce (Passeport, Carte Dermalog, Permis...)">
+  <input type="text" id="numero" placeholder="Numéro de la pièce">
+  <input type="text" id="lieu" placeholder="Lieu où la pièce a été retrouvée">
+  <input type="text" id="adresse" placeholder="Adresse où la pièce est déposée (ex : Commissariat Delmas 33)">
+  <button onclick="addDocument()">Enregistrer</button>
+
+  <h2>Rechercher une pièce</h2>
+  <input type="text" id="searchName" placeholder="Nom à rechercher">
+  <button onclick="searchDocument()">Rechercher</button>
+
+  <div class="result" id="result"></div>
+
+  <h2>Contact</h2>
+  <p>Pour toute information ou assistance, contactez-nous :</p>
+  <textarea rows="3" placeholder="Votre message..."></textarea>
+  <button onclick="alert('Message envoyé ! (simulation)')">Envoyer</button>
+</main>
+
+<footer>
+  &copy; 2025 Pyès Identité Mwen — Projet conçu par Ritjkaad Desvaraines
+</footer>
+
+<script>
+  let documents = [];
+
+  function addDocument() {
+    const name = document.getElementById('name').value.trim();
+    const doc = document.getElementById('document').value.trim();
+    const numero = document.getElementById('numero').value.trim();
+    const lieu = document.getElementById('lieu').value.trim();
+    const adresse = document.getElementById('adresse').value.trim();
+
+    if(!name || !doc || !numero || !lieu || !adresse) {
+      alert('Veuillez remplir tous les champs.');
+      return;
+    }
+
+    documents.push({name, doc, numero, lieu, adresse});
+    alert('Pièce enregistrée avec succès !');
+    document.getElementById('name').value = '';
+    document.getElementById('document').value = '';
+    document.getElementById('numero').value = '';
+    document.getElementById('lieu').value = '';
+    document.getElementById('adresse').value = '';
+    console.log(documents);
+  }
+
+  function searchDocument() {
+    const searchName = document.getElementById('searchName').value.trim().toLowerCase();
+    const resultDiv = document.getElementById('result');
+    if(searchName === '') {
+      alert('Veuillez entrer un nom à rechercher.');
+      return;
+    }
+
+    const results = documents.filter(d => d.name.toLowerCase().includes(searchName));
+    if(results.length > 0) {
+      resultDiv.style.display = 'block';
+      resultDiv.innerHTML = '<h3>Résultats trouvés :</h3>' +
+        results.map(r => 
+          `<div>
+            <strong>${r.name}</strong> - ${r.doc}<br>
+            <b>Numéro :</b> ${r.numero}<br>
+            <b>Retrouvée à :</b> ${r.lieu}<br>
+            <b>Déposée à :</b> ${r.adresse}
+          </div><hr>`
+        ).join('');
+    } else {
+      resultDiv.style.display = 'block';
+      resultDiv.innerHTML = '<p>Aucun document trouvé.</p>';
+    }
+  }
+</script>
+
+</body>
+</html>
