@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rechercher une pièce perdue | Pyès Idantite Mwen</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0096c7, #0077b6);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    form {
+      background: white;
+      color: #333;
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 15px;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background-color: #0096c7;
+    }
+
+    a {
+      display: block;
+      margin-top: 15px;
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #0077b6;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔍 Rechercher une pièce perdue</h1>
+
+  <!-- Formulaire d'inscription -->
+  <form id="inscriptionForm">
+    <div class="section-title">🧍 Enregistrez-vous avant de rechercher</div>
+
+    <label>Nom complet :</label>
+    <input type="text" placeholder="Ex : Marie Joseph" required />
+
+    <label>Adresse e-mail :</label>
+    <input type="email" placeholder="Ex : mariejoseph@email.com" required />
+
+    <label>Numéro de téléphone :</label>
+    <input type="tel" placeholder="Ex : +509 4012 3456" required />
+
+    <button type="button" onclick="showSearchForm()">✅ S'inscrire</button>
+  </form>
+
+  <!-- Formulaire de recherche (caché au départ) -->
+  <form id="searchForm" style="display:none;">
+    <div class="section-title">🔎 Rechercher la pièce perdue</div>
+
+    <label>Nom & prénom sur la pièce :</label>
+    <input type="text" placeholder="Ex : Marie Joseph" required />
+
+    <label>Type de pièce :</label>
+    <select required>
+      <option value="">-- Choisir --</option>
+      <option>CIN</option>
+      <option>Passeport</option>
+      <option>Permis de conduire</option>
+      <option>Carte Dermalog</option>
+      <option>Autre</option>
+    </select>
+
+    <label>Numéro ID de la pièce :</label>
+    <input type="text" placeholder="Ex : 12-34-56789-01-00001" required />
+
+    <button type="submit">🔍 Lancer la recherche</button>
+  </form>
+
+  <a href="index.html">⬅️ Retour à l'accueil</a>
+
+  <script>
+    function showSearchForm() {
+      document.getElementById("inscriptionForm").style.display = "none";
+      document.getElementById("searchForm").style.display = "block";
+      alert("✅ Inscription réussie ! Vous pouvez maintenant rechercher votre pièce.");
+    }
+  </script>
+</body>
+</html>
