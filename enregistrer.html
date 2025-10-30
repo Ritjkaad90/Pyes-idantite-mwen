@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enregistrer une pièce retrouvée | Pyès Idantite Mwen</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #00b4d8, #0077b6);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    form {
+      background: white;
+      color: #333;
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 15px;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background-color: #0096c7;
+    }
+
+    a {
+      display: block;
+      margin-top: 20px;
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>🆕 Enregistrer une pièce retrouvée</h1>
+  <form>
+    <label>Nom & prénom sur la pièce :</label>
+    <input type="text" placeholder="Ex : Jean Michel" required />
+
+    <label>Type de pièce :</label>
+    <select required>
+      <option value="">-- Choisir --</option>
+      <option>CIN</option>
+      <option>Passeport</option>
+      <option>Permis de conduire</option>
+      <option>Carte Dermalog</option>
+      <option>Autre</option>
+    </select>
+
+    <label>Numéro ID sur la pièce :</label>
+    <input type="text" placeholder="Ex : 12-34-56789-01-00001" required />
+
+    <label>Zone où la pièce a été retrouvée :</label>
+    <input type="text" placeholder="Ex : Delmas 33" required />
+
+    <label>Adresse ou lieu de dépôt :</label>
+    <textarea placeholder="Ex : Commissariat de Delmas 33" rows="2" required></textarea>
+
+    <button type="submit">📤 Soumettre</button>
+  </form>
+
+  <a href="index.html">⬅️ Retour à l'accueil</a>
+</body>
+</html>
