@@ -1,37 +1,49 @@
 <!DOCTYPE html>
 <html lang="ht">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rechercher une pièce perdue | Pyès Idantite Mwen</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0096c7, #0077b6);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
-      padding: 20px;
-    }
-
-    h1 {
-      margin-top: 20px;
-      margin-bottom: 10px;
-    }
-
-    form {
-      background: white;
+      background: #f5f7fa;
       color: #333;
-      padding: 25px;
+    }
+
+    header {
+      background: linear-gradient(90deg, #0077b6, #0096c7);
+      color: white;
+      padding: 20px 10px;
+      box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    header h1 { margin: 0; font-size: 1.8rem; }
+    nav { margin-top: 10px; }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav a:hover { color: #ffdd00; }
+
+    main {
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
       border-radius: 15px;
-      max-width: 400px;
-      width: 100%;
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
-      margin-bottom: 25px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #023e8a;
+      margin-bottom: 20px;
     }
 
     label {
@@ -43,93 +55,106 @@
     input, select {
       width: 100%;
       padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
       border-radius: 8px;
-    }
-
-    button {
-      background-color: #0077b6;
-      color: white;
-      border: none;
-      padding: 12px;
-      border-radius: 10px;
-      cursor: pointer;
-      width: 100%;
-      margin-top: 15px;
+      border: 1px solid #ccc;
+      margin-top: 5px;
       font-size: 1rem;
     }
 
-    button:hover {
-      background-color: #0096c7;
-    }
-
-    a {
-      display: block;
-      margin-top: 15px;
+    button {
+      margin-top: 20px;
+      width: 100%;
+      background: #0077b6;
       color: white;
-      text-decoration: none;
-      font-size: 0.9rem;
-      text-align: center;
+      border: none;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
-    .section-title {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      color: #0077b6;
+    button:hover {
+      background: #0096c7;
+      transform: scale(1.03);
+    }
+
+    .result {
+      margin-top: 25px;
+      text-align: center;
+      background: #e9f5ff;
+      padding: 15px;
+      border-radius: 10px;
+      display: none;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      background: #023e8a;
+      color: white;
+      text-align: center;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <h1>🔍 Rechercher une pièce perdue</h1>
+  <header>
+    <h1>🪪 Pyès Idantite Mwen</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="enregistrer.html">Enregistrer</a>
+      <a href="rechercher.html">Rechercher</a>
+    </nav>
+  </header>
 
-  <!-- Formulaire d'inscription -->
-  <form id="inscriptionForm">
-    <div class="section-title">🧍 Enregistrez-vous avant de rechercher</div>
+  <main>
+    <h2>🔍 Rechercher une pièce perdue</h2>
+    <p style="text-align:center">Ranpli enfòmasyon sa yo pou n ka ede w jwenn pyès ou pi vit.</p>
 
-    <label>Nom complet :</label>
-    <input type="text" placeholder="Ex : Marie Joseph" required />
+    <form id="searchForm">
+      <label>Nom et prénom sur la pièce :</label>
+      <input type="text" id="nom" placeholder="Ex: Jean Pierre" required>
 
-    <label>Adresse e-mail :</label>
-    <input type="email" placeholder="Ex : mariejoseph@email.com" required />
+      <label>Type de pièce :</label>
+      <select id="type" required>
+        <option value="">-- Sélectionner --</option>
+        <option>Carte Dermalog</option>
+        <option>Passeport</option>
+        <option>Permis de conduire</option>
+        <option>Carte électorale</option>
+        <option>Autre</option>
+      </select>
 
-    <label>Numéro de téléphone :</label>
-    <input type="tel" placeholder="Ex : +509 4012 3456" required />
+      <label>Numéro ID de la pièce :</label>
+      <input type="text" id="numero" placeholder="Ex: ID-123456" required>
 
-    <button type="button" onclick="showSearchForm()">✅ S'inscrire</button>
-  </form>
+      <button type="submit">🔎 Lancer la recherche</button>
+    </form>
 
-  <!-- Formulaire de recherche (caché au départ) -->
-  <form id="searchForm" style="display:none;">
-    <div class="section-title">🔎 Rechercher la pièce perdue</div>
+    <div class="result" id="resultBox">
+      <h3>Résultat de recherche</h3>
+      <p id="message">Aucune donnée trouvée pour l’instant.</p>
+    </div>
+  </main>
 
-    <label>Nom & prénom sur la pièce :</label>
-    <input type="text" placeholder="Ex : Marie Joseph" required />
-
-    <label>Type de pièce :</label>
-    <select required>
-      <option value="">-- Choisir --</option>
-      <option>CIN</option>
-      <option>Passeport</option>
-      <option>Permis de conduire</option>
-      <option>Carte Dermalog</option>
-      <option>Autre</option>
-    </select>
-
-    <label>Numéro ID de la pièce :</label>
-    <input type="text" placeholder="Ex : 12-34-56789-01-00001" required />
-
-    <button type="submit">🔍 Lancer la recherche</button>
-  </form>
-
-  <a href="index.html">⬅️ Retour à l'accueil</a>
+  <footer>
+    © 2025 Pyès Idantite Mwen | Dev. Ritjkaad Desvaraines 💻
+  </footer>
 
   <script>
-    function showSearchForm() {
-      document.getElementById("inscriptionForm").style.display = "none";
-      document.getElementById("searchForm").style.display = "block";
-      alert("✅ Inscription réussie ! Vous pouvez maintenant rechercher votre pièce.");
-    }
+    const form = document.getElementById('searchForm');
+    const resultBox = document.getElementById('resultBox');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      resultBox.style.display = 'block';
+      message.textContent = 'Recherche en cours... (prototype non connecté à la base de données)';
+      setTimeout(() => {
+        message.textContent = 'Aucune correspondance trouvée pour le moment.';
+      }, 2000);
+    });
   </script>
 </body>
 </html>
