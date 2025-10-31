@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="ht">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pyès Idantite Mwen</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enregistrer une pièce retrouvée | Pyès Idantite Mwen</title>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
       background: #f5f7fa;
       color: #333;
-      text-align: center;
     }
 
     header {
@@ -18,18 +17,11 @@
       color: white;
       padding: 20px 10px;
       box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+      text-align: center;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-      letter-spacing: 1px;
-    }
-
-    nav {
-      margin-top: 10px;
-    }
-
+    header h1 { margin: 0; font-size: 1.8rem; }
+    nav { margin-top: 10px; }
     nav a {
       color: white;
       text-decoration: none;
@@ -37,35 +29,54 @@
       font-weight: bold;
       transition: 0.3s;
     }
-
-    nav a:hover {
-      color: #ffdd00;
-    }
+    nav a:hover { color: #ffdd00; }
 
     main {
-      margin-top: 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 25px;
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
-    .btn {
+    h2 {
+      text-align: center;
+      color: #023e8a;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 5px;
+      font-size: 1rem;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
       background: #0077b6;
       color: white;
       border: none;
-      padding: 15px 25px;
-      border-radius: 12px;
+      padding: 15px;
+      border-radius: 10px;
       font-size: 1.1rem;
       cursor: pointer;
       transition: 0.3s;
-      text-decoration: none;
-      display: inline-block;
     }
 
-    .btn:hover {
+    button:hover {
       background: #0096c7;
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
 
     footer {
@@ -73,6 +84,7 @@
       padding: 20px;
       background: #023e8a;
       color: white;
+      text-align: center;
       font-size: 0.9rem;
     }
   </style>
@@ -82,17 +94,40 @@
     <h1>🪪 Pyès Idantite Mwen</h1>
     <nav>
       <a href="index.html">Accueil</a>
-      <a href="enregistrer.html">Enregistrer une pièce retrouvée</a>
-      <a href="rechercher.html">Rechercher une pièce perdue</a>
+      <a href="enregistrer.html">Enregistrer</a>
+      <a href="rechercher.html">Rechercher</a>
     </nav>
   </header>
 
   <main>
-    <h2>Bienvenue sou platfòm Pyès Idantite Mwen 👋🏾</h2>
-    <p>Jwenn oswa anrejistre pyès idantite pèdi yo fasilman, vit epi san stres !</p>
+    <h2>📥 Enregistrer une pièce retrouvée</h2>
+    <p style="text-align:center">Rempli fòmilè sa ak presizyon pou ede moun jwenn pyès yo vit.</p>
 
-    <a href="enregistrer.html" class="btn">📥 Enregistrer une pièce retrouvée</a>
-    <a href="rechercher.html" class="btn">🔍 Rechercher une pièce perdue</a>
+    <form>
+      <label>Nom et prénom sur la pièce :</label>
+      <input type="text" placeholder="Ex: Jean Pierre" required>
+
+      <label>Type de pièce :</label>
+      <select required>
+        <option value="">-- Sélectionner --</option>
+        <option>Carte Dermalog</option>
+        <option>Passeport</option>
+        <option>Permis de conduire</option>
+        <option>Carte électorale</option>
+        <option>Autre</option>
+      </select>
+
+      <label>Numéro ID inscrit sur la pièce :</label>
+      <input type="text" placeholder="Ex: ID-123456" required>
+
+      <label>Zone où la pièce a été trouvée :</label>
+      <input type="text" placeholder="Ex: Delmas 33, près de l’église">
+
+      <label>Adresse du lieu de dépôt :</label>
+      <textarea rows="3" placeholder="Ex: Commissariat de Delmas, Bureau d’état civil..." required></textarea>
+
+      <button type="submit">✅ Soumettre la pièce retrouvée</button>
+    </form>
   </main>
 
   <footer>
