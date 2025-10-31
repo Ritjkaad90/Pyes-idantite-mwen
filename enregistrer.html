@@ -3,104 +3,100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Enregistrer une pièce retrouvée | Pyès Idantite Mwen</title>
+  <title>Pyès Idantite Mwen</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #00b4d8, #0077b6);
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #f5f7fa;
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      background: linear-gradient(90deg, #0077b6, #0096c7);
       color: white;
+      padding: 20px 10px;
+      box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffdd00;
+    }
+
+    main {
+      margin-top: 40px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      padding: 20px;
+      gap: 25px;
     }
 
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    form {
-      background: white;
-      color: #333;
-      padding: 25px;
-      border-radius: 15px;
-      max-width: 400px;
-      width: 100%;
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
-    }
-
-    label {
-      display: block;
-      margin-top: 10px;
-      font-weight: bold;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-
-    button {
-      background-color: #0077b6;
+    .btn {
+      background: #0077b6;
       color: white;
       border: none;
-      padding: 12px;
-      border-radius: 10px;
+      padding: 15px 25px;
+      border-radius: 12px;
+      font-size: 1.1rem;
       cursor: pointer;
-      width: 100%;
-      margin-top: 15px;
-      font-size: 1rem;
-    }
-
-    button:hover {
-      background-color: #0096c7;
-    }
-
-    a {
-      display: block;
-      margin-top: 20px;
-      color: white;
+      transition: 0.3s;
       text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: #0096c7;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      background: #023e8a;
+      color: white;
       font-size: 0.9rem;
-      text-align: center;
     }
   </style>
 </head>
 <body>
-  <h1>🆕 Enregistrer une pièce retrouvée</h1>
-  <form>
-    <label>Nom & prénom sur la pièce :</label>
-    <input type="text" placeholder="Ex : Jean Michel" required />
+  <header>
+    <h1>🪪 Pyès Idantite Mwen</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="enregistrer.html">Enregistrer une pièce retrouvée</a>
+      <a href="rechercher.html">Rechercher une pièce perdue</a>
+    </nav>
+  </header>
 
-    <label>Type de pièce :</label>
-    <select required>
-      <option value="">-- Choisir --</option>
-      <option>CIN</option>
-      <option>Passeport</option>
-      <option>Permis de conduire</option>
-      <option>Carte Dermalog</option>
-      <option>Autre</option>
-    </select>
+  <main>
+    <h2>Bienvenue sou platfòm Pyès Idantite Mwen 👋🏾</h2>
+    <p>Jwenn oswa anrejistre pyès idantite pèdi yo fasilman, vit epi san stres !</p>
 
-    <label>Numéro ID sur la pièce :</label>
-    <input type="text" placeholder="Ex : 12-34-56789-01-00001" required />
+    <a href="enregistrer.html" class="btn">📥 Enregistrer une pièce retrouvée</a>
+    <a href="rechercher.html" class="btn">🔍 Rechercher une pièce perdue</a>
+  </main>
 
-    <label>Zone où la pièce a été retrouvée :</label>
-    <input type="text" placeholder="Ex : Delmas 33" required />
-
-    <label>Adresse ou lieu de dépôt :</label>
-    <textarea placeholder="Ex : Commissariat de Delmas 33" rows="2" required></textarea>
-
-    <button type="submit">📤 Soumettre</button>
-  </form>
-
-  <a href="index.html">⬅️ Retour à l'accueil</a>
+  <footer>
+    © 2025 Pyès Idantite Mwen | Dev. Ritjkaad Desvaraines 💻
+  </footer>
 </body>
 </html>
