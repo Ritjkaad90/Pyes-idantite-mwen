@@ -6,61 +6,97 @@
   <title>Pyès Idantite Mwen</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0077b6, #00b4d8);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
+      background: #f5f7fa;
+      color: #333;
       text-align: center;
     }
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
+    header {
+      background: linear-gradient(90deg, #0077b6, #0096c7);
+      color: white;
+      padding: 20px 10px;
+      box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
     }
 
-    .options {
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffdd00;
+    }
+
+    main {
+      margin-top: 40px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      width: 90%;
-      max-width: 400px;
+      align-items: center;
+      gap: 25px;
     }
 
-    a {
-      background-color: #ffffff;
-      color: #0077b6;
-      text-decoration: none;
+    .btn {
+      background: #0077b6;
+      color: white;
+      border: none;
       padding: 15px 25px;
       border-radius: 12px;
-      font-weight: bold;
-      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      display: inline-block;
     }
 
-    a:hover {
-      background-color: #00b4d8;
-      color: white;
+    .btn:hover {
+      background: #0096c7;
       transform: scale(1.05);
     }
 
     footer {
-      position: absolute;
-      bottom: 15px;
-      font-size: 0.8rem;
-      opacity: 0.8;
+      margin-top: 40px;
+      padding: 20px;
+      background: #023e8a;
+      color: white;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <h1>Pyès Idantite Mwen</h1>
-  <div class="options">
-    <a href="enregistrer.html">🆕 Enregistrer une pièce retrouvée / Anrejistre yon pyès jwenn</a>
-    <a href="rechercher.html">🔍 Rechercher une pièce perdue / Chèche yon pyès pèdi</a>
-  </div>
-  <footer>© 2025 Pyès Idantite Mwen | Développé par Ritjkaad</footer>
+  <header>
+    <h1>🪪 Pyès Idantite Mwen</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="enregistrer.html">Enregistrer une pièce retrouvée</a>
+      <a href="rechercher.html">Rechercher une pièce perdue</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Bienvenue sou platfòm Pyès Idantite Mwen 👋🏾</h2>
+    <p>Jwenn oswa anrejistre pyès idantite pèdi yo fasilman, vit epi san stres !</p>
+
+    <a href="enregistrer.html" class="btn">📥 Enregistrer une pièce retrouvée</a>
+    <a href="rechercher.html" class="btn">🔍 Rechercher une pièce perdue</a>
+  </main>
+
+  <footer>
+    © 2025 Pyès Idantite Mwen | Dev. Ritjkaad Desvaraines 💻
+  </footer>
 </body>
 </html>
