@@ -96,6 +96,8 @@
       text-align: center;
       font-size: 0.9rem;
     }
+
+    .hidden { display: none; }
   </style>
 </head>
 <body>
@@ -110,9 +112,26 @@
 
   <main>
     <h2>🔍 Rechercher une pièce perdue</h2>
-    <p style="text-align:center">Ranpli enfòmasyon sa yo pou n ka ede w jwenn pyès ou pi vit.</p>
+    <p style="text-align:center">Inscrivez-vous d’abord pour recevoir une notification dès que votre pièce est retrouvée.</p>
 
-    <form id="searchForm">
+    <!-- Formulaire d'inscription -->
+    <form id="registerForm">
+      <label>Nom complet :</label>
+      <input type="text" id="userNom" placeholder="Ex: Jean Pierre" required>
+
+      <label>Adresse e-mail :</label>
+      <input type="email" id="userEmail" placeholder="Ex: jeanpierre@email.com" required>
+
+      <label>Numéro de téléphone :</label>
+      <input type="tel" id="userTel" placeholder="Ex: +509 40 00 00 00" required>
+
+      <button type="submit">📝 S’inscrire</button>
+    </form>
+
+    <!-- Formulaire de recherche (caché avant inscription) -->
+    <form id="searchForm" class="hidden">
+      <h3 style="text-align:center; color:#023e8a;">Cherchez votre pièce maintenant :</h3>
+
       <label>Nom et prénom sur la pièce :</label>
       <input type="text" id="nom" placeholder="Ex: Jean Pierre" required>
 
@@ -143,16 +162,26 @@
   </footer>
 
   <script>
-    const form = document.getElementById('searchForm');
+    const registerForm = document.getElementById('registerForm');
+    const searchForm = document.getElementById('searchForm');
     const resultBox = document.getElementById('resultBox');
     const message = document.getElementById('message');
 
-    form.addEventListener('submit', (e) => {
+    // Étape 1 : Inscription
+    registerForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      registerForm.classList.add('hidden');
+      searchForm.classList.remove('hidden');
+      alert("✅ Inscription réussie ! Vous pouvez maintenant rechercher votre pièce.");
+    });
+
+    // Étape 2 : Recherche
+    searchForm.addEventListener('submit', (e) => {
       e.preventDefault();
       resultBox.style.display = 'block';
-      message.textContent = 'Recherche en cours... (prototype non connecté à la base de données)';
+      message.textContent = '🔎 Recherche en cours... (prototype)';
       setTimeout(() => {
-        message.textContent = 'Aucune correspondance trouvée pour le moment.';
+        message.textContent = 'Aucune correspondance trouvée pour le moment. Vous recevrez une notification dès qu’elle sera retrouvée.';
       }, 2000);
     });
   </script>
